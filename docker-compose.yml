@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  # auth:
+  #   image: 
+  client:
+    build: 
+      context: ./frontend
+    ports:
+      - 8000:80
+    
