@@ -1,11 +1,27 @@
 version: '3.8'
 
 services:
-  # auth:
-  #   image: 
+  auth:
+    image: jboss/keycloak:16.1.1
+    ports:
+      - 8001:8080
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+    volumes:
+      - auth-db:/opt/jboss/keycloak/standalone/data/
+
+  # auth-db:
+  #   image: mysql:8.0.29
+  #   environment:
+  #     - MYSQL_USER=admin
+  #     - MYSQL_ROOT_PASSWORD=admin
+
   client:
     build: 
       context: ./frontend
     ports:
       - 8000:80
     
+volumes:
+  auth-db:
