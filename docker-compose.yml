@@ -11,12 +11,6 @@ services:
     volumes:
       - auth-db:/opt/jboss/keycloak/standalone/data/
 
-  # auth-db:
-  #   image: mysql:8.0.29
-  #   environment:
-  #     - MYSQL_USER=admin
-  #     - MYSQL_ROOT_PASSWORD=admin
-
   client:
     build: 
       context: ./frontend
